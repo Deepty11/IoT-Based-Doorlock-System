@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "505489335482",
+    "firebase_url": "https://final-project-e264b.firebaseio.com",
+    "project_id": "final-project-e264b",
+    "storage_bucket": "final-project-e264b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:505489335482:android:7c3b9b05a323c644",
+        "android_client_info": {
+          "package_name": "com.jucse.doorlockfingerprintauthentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "505489335482-a4spctc5buejc3ppi64mrcag78ipl085.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jucse.doorlockfingerprintauthentication",
+            "certificate_hash": "d35c031ea9926226f99b81b405b9e4aadbbf2450"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCChT8sheq1inbVPDhuN1MEZpG_WqPA-i0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "505489335482-999ferttijj0omp7fg09f6m8362grnbu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
