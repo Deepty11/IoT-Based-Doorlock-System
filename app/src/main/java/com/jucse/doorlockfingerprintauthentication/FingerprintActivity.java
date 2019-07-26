@@ -19,6 +19,7 @@ import android.security.keystore.KeyProperties;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
@@ -51,7 +52,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 
-public class FingerprintActivity extends AppCompatActivity {
+public class FingerprintActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = LoginActivity.class.getSimpleName();
   //  private FingerprintManager fingerprintManager;
  //   private KeyguardManager keyguardManager;
@@ -94,6 +95,7 @@ public class FingerprintActivity extends AppCompatActivity {
     //setting address and port number
     private String addr;
     private String port;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
 
 
@@ -120,6 +122,9 @@ public class FingerprintActivity extends AppCompatActivity {
 
         buttonConnect.setOnClickListener(buttonConnectOnClickListener);
         buttonDisconnect.setOnClickListener(buttonDisConnectOnClickListener);
+
+        swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swipeRefresh);
+        swipeRefreshLayout.setOnRefreshListener(this);
 
         textViewstate=(TextView)findViewById(R.id.status);
 
@@ -312,6 +317,12 @@ public class FingerprintActivity extends AppCompatActivity {
         buttonDisconnect.setEnabled(false);
         //buttonSend.setEnabled(false);
 
+    }
+
+    @Override
+    public void onRefresh() {
+        finish();
+        startActivity(getIntent());
     }
 
     public static class ClientHandler extends Handler {
