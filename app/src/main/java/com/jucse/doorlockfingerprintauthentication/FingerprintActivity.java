@@ -25,6 +25,9 @@ import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -33,6 +36,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.support.v7.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
@@ -91,6 +95,7 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
 
     private Button buttonConnect, buttonDisconnect;
     private TextView textViewstate;
+    private Toolbar toolbar;
 
     //setting address and port number
     private String addr;
@@ -103,6 +108,12 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fingerprint);
+
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Fingerprint");
+        setSupportActionBar(toolbar);
+
+
         checkedPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
         if (Build.VERSION.SDK_INT >= 23 && checkedPermission != PackageManager.PERMISSION_GRANTED) {
             requestPermission();
@@ -115,7 +126,7 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
         //mHeadingLabel = (TextView) findViewById(R.id.headingLabel);
         mFingerprintImage = (ImageView) findViewById(R.id.fingerprint_image);
         mParaLabel = (TextView) findViewById(R.id.paraLabel);
-        Signout=(Button)findViewById(R.id.signout);
+        //Signout=(Button)findViewById(R.id.signout);
 
         buttonConnect=(Button)findViewById(R.id.buttonConnect);
         buttonDisconnect=(Button)findViewById(R.id.buttonDisconnect);
@@ -128,14 +139,14 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
 
         textViewstate=(TextView)findViewById(R.id.status);
 
-        addr="192.172.2.101";
+        addr="192.172.2.250";
         port="8000";
       //  buttonSend.setOnClickListener(buttonSendOnClickListener);
 
         clientHandler = new ClientHandler(this);
 
         firebaseAuth= FirebaseAuth.getInstance();
-        Signout.setOnClickListener(new View.OnClickListener() {
+        /*Signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 firebaseAuth.signOut();
@@ -144,7 +155,7 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
 
                 startActivity(intent);
             }
-        });
+        });*/
 
 
 
@@ -196,6 +207,9 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
 
 
     }
+
+
+
     View.OnClickListener buttonConnectOnClickListener =
             new View.OnClickListener() {
 
@@ -318,6 +332,33 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
         //buttonSend.setEnabled(false);
 
     }
+
+    //for toolbar menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch(item.getItemId()){
+
+
+            case R.id.menuLogout:
+                Toast.makeText(this, "You clicked logout", Toast.LENGTH_SHORT).show();
+                firebaseAuth.signOut();
+               // Toast.makeText(FingerprintActivity.this,"Logged out!",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(FingerprintActivity.this,MainActivity.class);
+
+                startActivity(intent);
+                break;
+
+        }
+        return true;
+    }
+
 
     @Override
     public void onRefresh() {
