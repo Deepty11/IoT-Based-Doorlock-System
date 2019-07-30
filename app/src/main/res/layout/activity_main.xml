@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@drawable/bgfinger"
     android:paddingBottom="3.20dp"
     android:paddingLeft="3.20dp"
+    android:background="@drawable/door"
     android:paddingRight="3.20dp"
     android:paddingTop="3.20dp"
     android:layout_height="match_parent"
@@ -21,23 +21,25 @@
         <Button
             android:id="@+id/sign_in"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
             android:layout_marginRight="3.20dp"
             android:textColor="@color/colorWhite"
             android:text="@string/sign_in"
-            android:textSize="17.00dp"
-            android:background="@color/colorAccent"/>
+            android:textStyle="bold"
+            android:textSize="22.00dp"
+            android:background="@color/colorLight"/>
         <Button
             android:id="@+id/sign_up"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="100dp"
             android:layout_weight="1"
             android:textColor="@color/colorWhite"
             android:layout_marginLeft="3.20dp"
             android:text="@string/sign_up"
-            android:textSize="17.00dp"
-            android:background="@color/colorAccent"/>
+            android:textStyle="bold"
+            android:textSize="22.00dp"
+            android:background="@color/colorLight"/>
     </LinearLayout>
 
 </RelativeLayout>

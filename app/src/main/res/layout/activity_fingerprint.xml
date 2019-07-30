@@ -4,6 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/home"
+
     android:layout_height="match_parent"
     tools:context="com.jucse.doorlockfingerprintauthentication.FingerprintActivity">
 
@@ -43,27 +45,25 @@
             android:textColor="@color/colorBlack"
             android:text="@string/login_with_fingerprint"
             android:textStyle="bold"
-            android:layout_marginTop="33.60dp"/>
+            android:layout_marginBottom="150dp"/>
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonConnect"
             android:text="Connect"
-            android:layout_marginTop="@dimen/_15sdp"
-            android:background="@color/colorBlue"
+            android:textColor="@color/colorWhite"
+            android:layout_marginTop="@dimen/_40sdp"
+            android:background="@color/colorLight"
             />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/status"
-            android:layout_margin="@dimen/_10sdp"/>
+
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/buttonDisconnect"
             android:text="Disconnect"
-            android:layout_margin="@dimen/_10sdp"
-            android:background="@color/colorOpposite"/>
+            android:layout_marginTop="10dp"
+            android:background="@color/colorLight"
+            android:textColor="@color/colorWhite"/>
 
     </LinearLayout>
 

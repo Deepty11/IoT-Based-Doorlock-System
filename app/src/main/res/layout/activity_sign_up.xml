@@ -9,6 +9,7 @@
     android:paddingBottom="5.20dp"
     android:paddingLeft="5.20dp"
     android:paddingRight="5.20dp"
+    android:background="@drawable/bck1"
     android:paddingTop="5.20dp"
     tools:context="com.jucse.doorlockfingerprintauthentication.SignUpActivity">
     <ScrollView
@@ -24,7 +25,7 @@
                 android:id="@+id/login_error"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="38.40dp"
+                android:layout_marginTop="100dp"
                 android:padding="5.20dp"
                 android:text=""
                 android:textColor="@color/colorAccent" />
@@ -44,7 +45,8 @@
                     android:maxLines="1"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
-                    android:padding="@dimen/_12sdp"/>
+                    android:padding="@dimen/_12sdp"
+                    android:drawableLeft="@drawable/username"/>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
@@ -56,13 +58,14 @@
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/email_hint"
+                    android:hint= "@string/email_hint"
+                    android:drawableLeft="@drawable/email3"
                     android:textColorHint="@color/colorLight"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
-                    android:padding="@dimen/_12sdp" />
+                    android:padding="@dimen/_12sdp"/>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
@@ -75,12 +78,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/password_hint"
+                    android:drawableLeft="@drawable/password"
                     android:textColorHint="@color/colorLight"
                     android:inputType="textPassword"
                     android:maxLines="1"
                     android:background="@android:color/transparent"
                     android:textColor="@color/colorBlack"
-                    android:padding="@dimen/_12sdp" />
+                    android:padding="@dimen/_12sdp"/>
             </android.support.v7.widget.CardView>
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
@@ -93,6 +97,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/address_hint"
+                    android:drawableLeft="@drawable/add1"
                     android:textColorHint="@color/colorLight"
                     android:inputType="textPostalAddress"
                     android:maxLines="1"
@@ -111,6 +116,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/phone_number_hint"
+                    android:drawableLeft="@drawable/tel1"
                     android:inputType="phone"
                     android:textColorHint="@color/colorLight"
                     android:maxLines="1"
