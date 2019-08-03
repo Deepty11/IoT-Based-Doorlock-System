@@ -40,30 +40,34 @@
         </android.support.v4.widget.SwipeRefreshLayout>
         <TextView
             android:id="@+id/paraLabel"
+            android:layout_marginTop="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/colorBlack"
             android:text="@string/login_with_fingerprint"
             android:textStyle="bold"
-            android:layout_marginBottom="150dp"/>
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/buttonConnect"
-            android:text="Connect"
-            android:textColor="@color/colorWhite"
-            android:layout_marginTop="@dimen/_40sdp"
-            android:background="@color/colorLight"
+            android:textSize="15dp"
+
             />
 
         <Button
+            android:id="@+id/buttonConnect"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="Connect"
+            android:textSize="20dp"
+            android:textStyle="bold"
+
+            android:textColor="@color/colorWhite" />
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonDisconnect"
-            android:text="Disconnect"
-            android:layout_marginTop="10dp"
-            android:background="@color/colorLight"
-            android:textColor="@color/colorWhite"/>
+            android:id="@+id/status"
+            android:layout_margin="@dimen/_10sdp"/>
+
+
 
     </LinearLayout>
 

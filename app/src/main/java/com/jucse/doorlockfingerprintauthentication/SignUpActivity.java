@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
@@ -47,6 +48,11 @@ public class SignUpActivity extends AppCompatActivity {
     private String passwordValue;
     private String addressValue;
     private String phonenumberValue;
+    private String Imei;
+    private Toolbar toolbar;
+
+    public static final int REQUEST_CODE_PHONE_STATE_READ = 100;
+    private int checkedPermission = PackageManager.PERMISSION_DENIED;
 // ...
 // Initialize Firebase Auth
 
@@ -56,6 +62,21 @@ public class SignUpActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         setTitle("Android Fingerprint Registration");
+        toolbar=(Toolbar)findViewById(R.id.toolbar);
+        toolbar.setTitle("Registration");
+
+       // setSupportActionBar(toolbar);
+
+
+        checkedPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+        if (Build.VERSION.SDK_INT >= 23 && checkedPermission != PackageManager.PERMISSION_GRANTED) {
+            requestPermission();
+        } else
+            checkedPermission = PackageManager.PERMISSION_GRANTED;
+
+        TelephonyManager manager = (TelephonyManager) getSystemService(this.TELEPHONY_SERVICE);
+        Imei=manager.getDeviceId();
+
 
 
         username = (EditText) findViewById(R.id.username);
@@ -107,8 +128,9 @@ public class SignUpActivity extends AppCompatActivity {
                                             @Override
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 Toast.makeText(SignUpActivity.this,"Regestration Complete",Toast.LENGTH_LONG).show();
-                                                Intent loginIntent = new Intent(SignUpActivity.this, LoginActivity.class);
-                                                startActivity(loginIntent);
+                                                Intent intent = new Intent(SignUpActivity.this, registrationNext.class);
+                                                intent.putExtra("imei",Imei);
+                                                startActivity(intent);
                                             }
                                         });
                                     } else {
@@ -134,6 +156,22 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch (requestCode) {
+            case REQUEST_CODE_PHONE_STATE_READ:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    checkedPermission = PackageManager.PERMISSION_GRANTED;
+                }
+                break;
+
+        }
+    }
+    private void requestPermission(){
+        Toast.makeText(this, "Requesting permission", Toast.LENGTH_SHORT).show();
+        this.requestPermissions(new String[]{Manifest.permission.READ_PHONE_STATE},
+                REQUEST_CODE_PHONE_STATE_READ);
     }
 
 }

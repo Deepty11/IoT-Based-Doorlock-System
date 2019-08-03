@@ -1,161 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
-    android:paddingBottom="5.20dp"
-    android:paddingLeft="5.20dp"
-    android:paddingRight="5.20dp"
-    android:background="@drawable/bck1"
-    android:paddingTop="5.20dp"
+
+    android:background="@drawable/black"
+
     tools:context="com.jucse.doorlockfingerprintauthentication.SignUpActivity">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:id="@+id/toolbar"
+        app:titleTextColor="#ffff"
+        android:background="@color/colorAccent"/>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:scrollbars="none">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/login_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
-                android:padding="5.20dp"
-                android:text=""
-                android:textColor="@color/colorAccent" />
+
+
+
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
                 android:layout_marginBottom="1dp"
                 card_view:cardElevation="@dimen/_3sdp"
                 card_view:cardUseCompatPadding="true">
+
                 <EditText
                     android:id="@+id/username"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/username"
                     android:hint="@string/username_hint"
-                    android:textColorHint="@color/colorLight"
                     android:inputType="text"
                     android:maxLines="1"
-                    android:background="@android:color/transparent"
-                    android:textColor="@color/colorBlack"
                     android:padding="@dimen/_12sdp"
-                    android:drawableLeft="@drawable/username"/>
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorLight" />
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 card_view:cardElevation="@dimen/_3sdp"
                 card_view:cardUseCompatPadding="true">
+
                 <EditText
                     android:id="@+id/email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint= "@string/email_hint"
+                    android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/email3"
-                    android:textColorHint="@color/colorLight"
+                    android:hint="@string/email_hint"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"
-                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_12sdp"
                     android:textColor="@color/colorBlack"
-                    android:padding="@dimen/_12sdp"/>
+                    android:textColorHint="@color/colorLight" />
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 card_view:cardElevation="@dimen/_3sdp"
                 card_view:cardUseCompatPadding="true">
+
                 <EditText
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/password_hint"
+                    android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/password"
-                    android:textColorHint="@color/colorLight"
+                    android:hint="@string/password_hint"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_12sdp"
                     android:textColor="@color/colorBlack"
-                    android:padding="@dimen/_12sdp"/>
+                    android:textColorHint="@color/colorLight" />
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 card_view:cardElevation="@dimen/_3sdp"
                 card_view:cardUseCompatPadding="true">
+
                 <EditText
                     android:id="@+id/address"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/address_hint"
+                    android:background="@android:color/transparent"
                     android:drawableLeft="@drawable/add1"
-                    android:textColorHint="@color/colorLight"
+                    android:hint="@string/address_hint"
                     android:inputType="textPostalAddress"
                     android:maxLines="1"
-                    android:background="@android:color/transparent"
+                    android:padding="@dimen/_12sdp"
                     android:textColor="@color/colorBlack"
-                    android:padding="@dimen/_12sdp"/>
+                    android:textColorHint="@color/colorLight" />
             </android.support.v7.widget.CardView>
+
             <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="1dp"
                 card_view:cardElevation="@dimen/_3sdp"
                 card_view:cardUseCompatPadding="true">
+
                 <EditText
                     android:id="@+id/phone_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/phone_number_hint"
-                    android:drawableLeft="@drawable/tel1"
-                    android:inputType="phone"
-                    android:textColorHint="@color/colorLight"
-                    android:maxLines="1"
                     android:background="@android:color/transparent"
+                    android:drawableLeft="@drawable/tel1"
+                    android:hint="@string/phone_number_hint"
+                    android:inputType="phone"
+                    android:maxLines="1"
+                    android:padding="@dimen/_12sdp"
                     android:textColor="@color/colorBlack"
-                    android:padding="@dimen/_12sdp"/>
+                    android:textColorHint="@color/colorLight" />
             </android.support.v7.widget.CardView>
+
             <RadioGroup
                 android:id="@+id/radio_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:layout_marginTop="5.20dp"
+                android:gravity="center"
+
                 android:orientation="horizontal">
+
                 <RadioButton
                     android:id="@+id/with_fingerprint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17.00dp"
-                    android:text="@string/with_fingerprint"/>
+                    android:text="@string/with_fingerprint"
+                    android:textColor="#ffff"
+                    android:textStyle="bold"
+                    android:textSize="17.00dp" />
+
                 <RadioButton
                     android:id="@+id/with_fingerprint_and_password"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="17.00dp"
-                    android:text="@string/with_fingerprint_and_password"/>
+                    android:text="With Password"
+                    android:textColor="#ffff"
+                    android:textStyle="bold"
+                    android:textSize="17.00dp" />
             </RadioGroup>
+
             <Button
                 android:id="@+id/sign_up_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
+                android:background="@color/colorAccent"
                 android:paddingBottom="10dp"
                 android:paddingTop="10dp"
                 android:text="@string/sign_up"
                 android:textAllCaps="true"
                 android:textColor="@color/colorWhite"
-                android:background="@color/colorAccent"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+</RelativeLayout>

@@ -58,9 +58,9 @@ import javax.crypto.SecretKey;
 
 public class FingerprintActivity extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener {
     private static final String TAG = LoginActivity.class.getSimpleName();
-  //  private FingerprintManager fingerprintManager;
- //   private KeyguardManager keyguardManager;
-   // private KeyStore keyStore;
+    //  private FingerprintManager fingerprintManager;
+    //   private KeyguardManager keyguardManager;
+    // private KeyStore keyStore;
     private KeyGenerator keyGenerator;
     private TextView mHeadingLabel;
     private ImageView mFingerprintImage;
@@ -73,11 +73,11 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
 
     private KeyStore keyStore;
 
-  //  private Cipher cipher;
+    //  private Cipher cipher;
     private String KEY_NAME = "AndroidKey";
     private Cipher cipher;
     private FingerprintManager.CryptoObject cryptoObject;
-   // private FingerprintHandler fingerprintHandler;
+    // private FingerprintHandler fingerprintHandler;
     private static final String FINGERPRINT_KEY = "key_name";
     private static final int REQUEST_USE_FINGERPRINT = 300;
     protected static Gson mGson;
@@ -114,6 +114,7 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
         setSupportActionBar(toolbar);
 
 
+
         checkedPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
         if (Build.VERSION.SDK_INT >= 23 && checkedPermission != PackageManager.PERMISSION_GRANTED) {
             requestPermission();
@@ -129,10 +130,10 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
         //Signout=(Button)findViewById(R.id.signout);
 
         buttonConnect=(Button)findViewById(R.id.buttonConnect);
-        buttonDisconnect=(Button)findViewById(R.id.buttonDisconnect);
+       // buttonDisconnect=(Button)findViewById(R.id.buttonDisconnect);
 
         buttonConnect.setOnClickListener(buttonConnectOnClickListener);
-        buttonDisconnect.setOnClickListener(buttonDisConnectOnClickListener);
+        //buttonDisconnect.setOnClickListener(buttonDisConnectOnClickListener);
 
         swipeRefreshLayout=(SwipeRefreshLayout)findViewById(R.id.swipeRefresh);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -141,21 +142,11 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
 
         addr="192.172.2.250";
         port="8000";
-      //  buttonSend.setOnClickListener(buttonSendOnClickListener);
+        //  buttonSend.setOnClickListener(buttonSendOnClickListener);
 
         clientHandler = new ClientHandler(this);
 
         firebaseAuth= FirebaseAuth.getInstance();
-        /*Signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                firebaseAuth.signOut();
-                Toast.makeText(FingerprintActivity.this,"Logged out!",Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(FingerprintActivity.this,MainActivity.class);
-
-                startActivity(intent);
-            }
-        });*/
 
 
 
@@ -223,12 +214,12 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
                     clientThread.start();
 
                     buttonConnect.setEnabled(false);
-                    buttonDisconnect.setEnabled(true);
+                    //buttonDisconnect.setEnabled(true);
                     //buttonSend.setEnabled(true);
                 }
             };
 
-    View.OnClickListener buttonDisConnectOnClickListener = new View.OnClickListener() {
+    /*View.OnClickListener buttonDisConnectOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             if(clientThread != null){
@@ -236,9 +227,9 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
             }
 
         }
-    };
+    };*/
     public void ToastMessage(){
-        Toast.makeText(getApplicationContext(),"status Updated",Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(),"status Updated",Toast.LENGTH_SHORT).show();
         Toast.makeText(this,"IMEI is is sent to firebase",Toast.LENGTH_LONG).show();
     }
 
@@ -328,7 +319,7 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
         clientThread = null;
         textViewstate.setText("clientEnd()");
         buttonConnect.setEnabled(true);
-        buttonDisconnect.setEnabled(false);
+        //buttonDisconnect.setEnabled(false);
         //buttonSend.setEnabled(false);
 
     }
@@ -349,7 +340,7 @@ public class FingerprintActivity extends AppCompatActivity implements SwipeRefre
             case R.id.menuLogout:
                 Toast.makeText(this, "You clicked logout", Toast.LENGTH_SHORT).show();
                 firebaseAuth.signOut();
-               // Toast.makeText(FingerprintActivity.this,"Logged out!",Toast.LENGTH_SHORT).show();
+                // Toast.makeText(FingerprintActivity.this,"Logged out!",Toast.LENGTH_SHORT).show();
                 Intent intent=new Intent(FingerprintActivity.this,MainActivity.class);
 
                 startActivity(intent);
