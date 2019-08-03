@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/black"
+    tools:context="com.jucse.doorlockfingerprintauthentication.registrationNext">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:id="@+id/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="44dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+
+
+
+
+
+        </android.support.v4.widget.SwipeRefreshLayout>
+
+        <TextView
+            android:id="@+id/Imei"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#ffff"
+            android:textSize="20dp"
+            android:gravity="center"
+
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:text=" Register your IMEI using the keypad click 'Continue' to proceed "
+            android:textColor="#ffff"
+            android:textSize="20dp" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:layout_below="@+id/type"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            android:background="@color/colorOpposite"
+            android:text="Next ->"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>
